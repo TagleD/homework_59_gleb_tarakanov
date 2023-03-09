@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Подробный просмотр задачи{% endblock %}
+
+{% block content %}
+    <div class="container main-container">
+        <div class="row">
+            <div class="col">
+                <h1 class="h1-detail">
+                    Подробный просмотр задачи
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 padding-left-tasks">
+                <h5>{{ task.title }}</h5>
+                {% if types %}
+                    <div class="row">
+                        {% for type in types %}
+                            <div class="col-3">
+                                <p class="tag">#{{ type }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <p>{{ task.description }}</p>
+                <p><b>{{ task.status }}</b></p>
+                <p>{{ task.ended_at }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 button-margin">
+                <a href="{% url 'task_delete' task.pk %}" class='btn btn-danger '>Удалить</a>
+            </div>
+            <div class="col-1">
+                <a href="{% url 'task_update' task.pk %}" class='btn btn-success'>Редактировать</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
