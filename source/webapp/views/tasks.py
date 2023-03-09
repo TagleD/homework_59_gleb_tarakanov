@@ -1,19 +1,29 @@
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from webapp.forms import TaskForm
 from webapp.models import Task
 
 
-class TasksView(TemplateView):
+# class TasksView(TemplateView):
+#     template_name = 'tasks.html'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['tasks'] = Task.objects.all()
+#         return context
+
+class TasksView(ListView):
     template_name = 'tasks.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['tasks'] = Task.objects.all()
-        return context
+    context_object_name = 'tasks'
+    model = Task
+    ordering = ['created_at']
+
+    paginate_by = 9
+    paginate_orphans = 1
 
 
 class DetailView(TemplateView):
