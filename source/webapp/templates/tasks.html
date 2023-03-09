@@ -2,6 +2,8 @@
 
 {% block title %}Просмотр задач{% endblock %}
 
+{% block search %}{% include 'partial/search.html' %}{% endblock %}
+
 {% block content %}
     <div class="container main-container">
         <div class="row">
@@ -11,11 +13,11 @@
                 </h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                {% include 'partial/search.html' %}
-            </div>
-        </div>
+{#        <div class="row">#}
+{#            <div class="col">#}
+{#                #}
+{#            </div>#}
+{#        </div>#}
         <div class="row">
             {% for task in tasks %}
 

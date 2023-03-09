@@ -1,6 +1,13 @@
 {% load django_bootstrap5 %}
 
-<form action="" method="get" class="text-center">
-    {% bootstrap_form form %}
-    {% bootstrap_button button_type="submit" content='Найти' %}
+{#{% for field in form %}#}
+{#    <input type="text" name="search" maxlength="100" class="form-control is-valid" placeholder="Найти" id="id_search">#}
+{#    {{ form }}#}
+{#{% endfor %}#}
+
+
+
+<form action="" method="get" class="d-flex search-form" role="search">
+    {% bootstrap_form form show_label=False  %}
+    {% bootstrap_button button_type="submit" content='Найти' button_class="btn btn-outline-success search-button" %}
 </form>
