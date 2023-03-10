@@ -3,7 +3,7 @@ from webapp.views.base import IndexView
 from webapp.views.projects import ProjectsView, ProjectDetailView, ProjectCreateView
 from webapp.views.tasks import (
     TaskAddView, TaskDetailView, TaskUpdateView,
-    DeleteView, ConfirmDelete, TasksView
+    DeleteView, TaskDeleteView, TasksView
 )
 
 
@@ -14,8 +14,8 @@ urlpatterns = [
     path('task/<int:pk>/', TaskDetailView.as_view(), name='detail_view'),
     path('tasks/add', TaskAddView.as_view(), name='add_view'),
     path('task/<int:pk>/update/', TaskUpdateView.as_view(), name='task_update'),
-    path('task/<int:pk>/delete/', DeleteView.as_view(), name='task_delete'),
-    path('task/<int:pk>/confirm_delete/', ConfirmDelete.as_view(), name='confirm_delete'),
+    path('task/<int:pk>/delete/', TaskDeleteView.as_view(), name='task_delete'),
+    path('task/<int:pk>/confirm_delete/', TaskDeleteView.as_view(), name='confirm_delete'),
 
     #URL для проектов
     path('projects', ProjectsView.as_view(), name='projects_view'),

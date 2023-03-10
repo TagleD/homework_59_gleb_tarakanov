@@ -1,11 +1,7 @@
-from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
-from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
-from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
-
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from webapp.forms import TaskForm, SimpleSearchForm
 from webapp.models import Task
 
@@ -41,7 +37,6 @@ class TasksView(ListView):
             queryset = queryset.filter(query)
         return queryset
 
-
     def get_search_form(self):
         return SimpleSearchForm(self.request.GET)
 
@@ -60,6 +55,7 @@ class TaskDetailView(DetailView):
         context['types'] = self.object.type.all()
         return context
 
+
 class TaskAddView(CreateView):
     template_name = 'task/add_task.html'
     model = Task
@@ -77,18 +73,8 @@ class TaskUpdateView(UpdateView):
     def get_success_url(self):
         return reverse('detail_view', kwargs={'pk': self.object.pk})
 
-class DeleteView(TemplateView):
+
+class TaskDeleteView(DeleteView):
     template_name = 'task/confirm_delete.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['task'] = get_object_or_404(Task, pk=kwargs['pk'])
-        return context
-
-
-class ConfirmDelete(View):
-
-    def post(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs['pk'])
-        task.delete()
-        return redirect('index')
+    model = Task
+    success_url = reverse_lazy('tasks_view')
