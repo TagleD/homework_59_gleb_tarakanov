@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
-from django.views.generic import ListView, CreateView
-
+from django.views.generic import ListView, CreateView, UpdateView
 from webapp.forms import ProjectForm, ProjectTaskForm
 from webapp.models import Project, Task
 
@@ -23,7 +22,7 @@ class ProjectDetailView(ListView):
 
     def get_queryset(self):
         self.project = Project.objects.get(pk=self.kwargs['pk'])
-        queryset = super().get_queryset()
+        queryset = super().get_queryset().exclude(is_deleted=True)
         return queryset.filter(project=self.project)
 
     def get_context_data(self, **kwargs):
@@ -53,3 +52,11 @@ class ProjectTaskCreateView(CreateView):
         task.save()
         return redirect('project_detail', pk=project.pk)
 
+
+class ProjectUpdateView(UpdateView):
+    template_name = 'project/project_update.html'
+    form_class = ProjectForm
+    model = Project
+
+    def get_success_url(self):
+        return reverse('project_detail', kwargs={'pk': self.object.pk})

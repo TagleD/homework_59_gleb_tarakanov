@@ -29,11 +29,8 @@
                         <p><a href="{% url 'project_detail' project.pk %}">Подробнее</a></p>
                     </div>
                     <div class="row">
-                        <div class="col-4">
-                            <a href="#" class='btn btn-danger'>Удалить</a>
-                        </div>
                         <div class="col-3">
-                            <a href="#" class='btn btn-success'>Изменить</a>
+                            <a href="{% url 'project_update' project.pk %}" class='btn btn-success'>Изменить</a>
                         </div>
                     </div>
                 </div>

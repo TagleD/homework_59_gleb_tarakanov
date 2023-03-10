@@ -1,4 +1,6 @@
 from django.db.models import Q
+from django.http import Http404
+from django.shortcuts import get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -16,6 +18,7 @@ class TasksView(ListView):
     paginate_by = 9
     paginate_orphans = 1
 
+
     def get(self, request, *args, **kwargs):
         self.form = self.get_search_form()
         self.search_value = self.get_search_value()
@@ -29,7 +32,7 @@ class TasksView(ListView):
         return context
 
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = super().get_queryset().exclude(is_deleted=True)
         if self.search_value:
             # Сделал по title и description, так как в этом проекте title выполняет
             # функцию краткого описания
@@ -49,6 +52,15 @@ class TasksView(ListView):
 class TaskDetailView(DetailView):
     template_name = 'task/task_detail.html'
     model = Task
+
+    def get(self, request, *args, **kwargs):
+        context = super().get(request, *args, **kwargs)
+        task = get_object_or_404(Task, pk=kwargs['pk'])
+        if task.is_deleted == True:
+            raise Http404
+        return context
+
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
