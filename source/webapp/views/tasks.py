@@ -38,6 +38,8 @@ class TasksView(ListView):
             # функцию краткого описания
             query = Q(title__icontains=self.search_value) | Q(description__icontains=self.search_value)
             queryset = queryset.filter(query)
+            # if len(queryset) == 0:
+            #     self.
         return queryset
 
     def get_search_form(self):
