@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from django.core.validators import BaseValidator, MinLengthValidator
 from django.forms import Textarea
 
-from webapp.models import Task
+from webapp.models import Task, Project
 
 
 class CustomLengthValidator(BaseValidator):
@@ -69,6 +69,18 @@ class TaskForm(forms.ModelForm):
         if len(title) < 2:
             raise ValidationError('Заголовок должен быть длинее 2-ух символов')
         return title
+
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ('name', 'description', 'started_at', 'ended_at')
+        labels = {
+            'name': 'Название проекта',
+            'description': 'Описание проекта',
+            'started_at': 'Дата начала',
+            'ended_at': 'Дата конца'
+        }
 
 
 class SimpleSearchForm(forms.Form):

@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 
-{% block title %}Просмотр задач{% endblock %}
+{% block title %}Задачи проекта {{ project.name }}{% endblock %}
 
-{% block search %}{% include 'partial/search.html' %}{% endblock %}
+{% block menu %}
+    <li class="nav-item">
+        <a class="nav-link active white" aria-current="page" href="{% url 'project_create' %}">
+            Создать проект
+        </a>
+    </li>
+{% endblock %}
 
 {% block content %}
     <div class="container main-container">
         <div class="row">
             <div class="col">
                 <h1 class="padding-left-tasks">
-                    Список задач
+                    Задачи проекта {{ project.name }}
                 </h1>
             </div>
         </div>
@@ -34,8 +40,5 @@
                 </div>
             {% endfor %}
         </div>
-        {% if is_paginated %}
-            {% include 'partial/pagination.html' %}
-        {% endif %}
     </div>
 {% endblock %}
