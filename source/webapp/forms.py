@@ -2,6 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import BaseValidator, MinLengthValidator
 from django.forms import Textarea
+from django.views.generic import CreateView
 
 from webapp.models import Task, Project
 
@@ -81,6 +82,18 @@ class ProjectForm(forms.ModelForm):
             'description': 'Описание проекта',
             'started_at': 'Дата начала',
             'ended_at': 'Дата конца'
+        }
+
+
+class ProjectTaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ('title', 'description', 'status', 'type')
+        labels = {
+            'title': 'Заголовок задачи',
+            'description': 'Описание задачи',
+            'status': 'Статус',
+            'type': 'Тип'
         }
 
 

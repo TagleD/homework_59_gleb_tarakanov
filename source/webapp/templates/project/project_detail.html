@@ -8,6 +8,11 @@
             Создать проект
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link active white" aria-current="page" href="{% url 'project_add_task' project.pk %}">
+            Создать задачу для проекта
+        </a>
+    </li>
 {% endblock %}
 
 {% block content %}

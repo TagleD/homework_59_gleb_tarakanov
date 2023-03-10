@@ -1,7 +1,8 @@
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
 from django.views.generic import ListView, CreateView
 
-from webapp.forms import ProjectForm
+from webapp.forms import ProjectForm, ProjectTaskForm
 from webapp.models import Project, Task
 
 
@@ -38,3 +39,17 @@ class ProjectCreateView(CreateView):
 
     def get_success_url(self):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
+
+
+class ProjectTaskCreateView(CreateView):
+    model = Task
+    template_name = 'project/task_create.html'
+    form_class = ProjectTaskForm
+
+    def form_valid(self, form):
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        task = form.save(commit=False)
+        task.project = project
+        task.save()
+        return redirect('project_detail', pk=project.pk)
+
