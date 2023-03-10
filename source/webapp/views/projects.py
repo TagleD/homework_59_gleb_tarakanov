@@ -19,7 +19,6 @@ class ProjectDetailView(ListView):
     context_object_name = 'tasks'
     model = Task
 
-
     def get_queryset(self):
         self.project = Project.objects.get(pk=self.kwargs['pk'])
         queryset = super().get_queryset().exclude(is_deleted=True)

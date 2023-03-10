@@ -2,7 +2,6 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import BaseValidator, MinLengthValidator
 from django.forms import Textarea
-from django.views.generic import CreateView
 
 from webapp.models import Task, Project
 
