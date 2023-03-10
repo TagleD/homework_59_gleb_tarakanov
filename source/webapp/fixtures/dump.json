@@ -24,11 +24,13 @@
   "model": "webapp.task",
   "pk": 13,
   "fields": {
-    "title": "Подготовить велосипеды",
+    "title": "Подготовить велосипед",
     "description": "Начинается весна, поэтому самое время подготовиться к новому сезону катания по полной.",
     "status": 2,
+    "project": 1,
+    "is_deleted": true,
     "created_at": "2023-03-01T23:27:54.629Z",
-    "updated_at": "2023-03-02T11:28:09.631Z",
+    "updated_at": "2023-03-10T12:55:33.155Z",
     "type": [
       3,
       2
@@ -42,24 +44,12 @@
     "title": "Посмотреть вебинар №28",
     "description": "Этот вебинар добавит Вам больше уверенности в себе, больше позитива и огромное желание учиться еще лучше",
     "status": 2,
+    "project": 1,
+    "is_deleted": true,
     "created_at": "2023-03-01T23:27:55.857Z",
-    "updated_at": "2023-03-02T10:52:01.344Z",
+    "updated_at": "2023-03-10T10:44:40.526Z",
     "type": [
       2
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 15,
-  "fields": {
-    "title": "Покормить кота и собаку",
-    "description": "Нужно брать ответственность за тех, кого приручил.",
-    "status": 2,
-    "created_at": "2023-03-01T23:27:56.802Z",
-    "updated_at": "2023-03-05T09:39:20.628Z",
-    "type": [
-      3
     ]
   }
 },
@@ -70,6 +60,8 @@
     "title": "Сделать 3 конспекта по физике",
     "description": "из-за долгого безделия нужно нагонять всю группу",
     "status": 1,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-02T05:22:50.338Z",
     "updated_at": "2023-03-03T10:28:54.887Z",
     "type": [
@@ -86,6 +78,8 @@
     "title": "Приготовить ужин",
     "description": "Если не хватит времени приготовить сочную курочку, то можно просто сходить в KFC, который находится неподалеку.",
     "status": 3,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-02T06:23:53.754Z",
     "updated_at": "2023-03-02T11:27:12.895Z",
     "type": [
@@ -102,6 +96,8 @@
     "title": "Помыть кота",
     "description": "Кот 10 лет собирал пыль по квартире, пора это   \r\nзакончить.",
     "status": 3,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-05T08:01:30.748Z",
     "updated_at": "2023-03-05T09:27:19.504Z",
     "type": [
@@ -114,13 +110,16 @@
   "model": "webapp.task",
   "pk": 21,
   "fields": {
-    "title": "Привет",
-    "description": "Привет",
-    "status": 2,
+    "title": "Сделать презентацию по стэкам",
+    "description": "Язык обучения Си. Презентация должна быть не менее 15 слайдов",
+    "status": 3,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-05T08:32:51.365Z",
-    "updated_at": "2023-03-05T08:32:51.365Z",
+    "updated_at": "2023-03-10T13:14:19.083Z",
     "type": [
-      2
+      2,
+      1
     ]
   }
 },
@@ -131,6 +130,8 @@
     "title": "Разобрать сумку",
     "description": "Разобрать сумку для спортзала и постирать все вещи, включая кроссовки.",
     "status": 3,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-05T09:29:19.104Z",
     "updated_at": "2022-06-05T09:29:19.104Z",
     "type": [
@@ -145,6 +146,8 @@
     "title": "Решить проблемы с bug",
     "description": "Баги - самая распространенная проблема на пути программистов. Кто умеет быстрее решать подобные проблемы, тот и в дамках.",
     "status": 2,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-05T10:18:57.799Z",
     "updated_at": "2023-03-05T10:18:57.799Z",
     "type": [
@@ -159,6 +162,8 @@
     "title": "BUG подкрался незаметно",
     "description": "Починить баг на сервере. Время очень ограниченно.",
     "status": 1,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-05T10:21:50.339Z",
     "updated_at": "2023-03-05T10:21:50.339Z",
     "type": [
@@ -173,6 +178,8 @@
     "title": "Взять автограф у Златана",
     "description": "Взять автограф у Златана",
     "status": 1,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-05T15:11:59.378Z",
     "updated_at": "2023-03-05T15:11:59.378Z",
     "type": [
@@ -187,6 +194,8 @@
     "title": "Заказать стикеры с aliexpress",
     "description": "Заказать стикеры с aliexpress",
     "status": 1,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-05T15:17:19.453Z",
     "updated_at": "2023-03-05T15:17:19.453Z",
     "type": [
@@ -201,6 +210,8 @@
     "title": "Купить канцтовары",
     "description": "Купить две синие ручки, три черные, корректор и пенал",
     "status": 3,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-05T15:18:09.750Z",
     "updated_at": "2023-03-05T15:18:09.750Z",
     "type": [
@@ -217,6 +228,8 @@
     "title": "Убрать квартиру",
     "description": "Нужно сделать генеральную уборку, а не продолжать жизнь в качестве БОМЖА.",
     "status": 1,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-05T15:19:37.680Z",
     "updated_at": "2023-03-05T15:19:37.680Z",
     "type": [
@@ -231,12 +244,167 @@
     "title": "Сделать дз 58",
     "description": "В аттракторе задали ДЗ номер 58, где нужно изучить основы django orm и валидации",
     "status": 3,
+    "project": 1,
+    "is_deleted": false,
     "created_at": "2023-03-05T15:20:52.121Z",
     "updated_at": "2023-03-05T15:20:52.121Z",
     "type": [
       1,
       2
     ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 30,
+  "fields": {
+    "title": "Привет",
+    "description": "фывфывыфв",
+    "status": 2,
+    "project": 1,
+    "is_deleted": true,
+    "created_at": "2023-03-10T09:49:46.282Z",
+    "updated_at": "2023-03-10T13:14:34.621Z",
+    "type": []
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 31,
+  "fields": {
+    "title": "Привет",
+    "description": "счясчясм",
+    "status": 1,
+    "project": 2,
+    "is_deleted": false,
+    "created_at": "2023-03-10T09:51:00.191Z",
+    "updated_at": "2023-03-10T09:51:00.191Z",
+    "type": []
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 32,
+  "fields": {
+    "title": "стулья",
+    "description": "Стул",
+    "status": 2,
+    "project": 2,
+    "is_deleted": false,
+    "created_at": "2023-03-10T09:53:09.000Z",
+    "updated_at": "2023-03-10T10:40:23.365Z",
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 33,
+  "fields": {
+    "title": "Приветандрей",
+    "description": "АНдрей",
+    "status": 1,
+    "project": 2,
+    "is_deleted": false,
+    "created_at": "2023-03-10T10:00:22.836Z",
+    "updated_at": "2023-03-10T10:00:22.836Z",
+    "type": []
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 34,
+  "fields": {
+    "title": "Новое приложение",
+    "description": "Написать новое приложение на фремворке Django. Дедлайн один месяц",
+    "status": 1,
+    "project": 2,
+    "is_deleted": false,
+    "created_at": "2023-03-10T10:04:20.729Z",
+    "updated_at": "2023-03-10T13:15:25.646Z",
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 35,
+  "fields": {
+    "title": "Проверить ошибки",
+    "description": "В компанию взяли джуна, поэтому неизвестно насколько качественно он выполняет свою работу. Вам следует проверить",
+    "status": 2,
+    "project": 2,
+    "is_deleted": false,
+    "created_at": "2023-03-10T10:36:58.083Z",
+    "updated_at": "2023-03-10T13:16:25.320Z",
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 36,
+  "fields": {
+    "title": "задача тест",
+    "description": "Ываывмвым",
+    "status": 1,
+    "project": 2,
+    "is_deleted": true,
+    "created_at": "2023-03-10T12:34:20.623Z",
+    "updated_at": "2023-03-10T13:16:33.087Z",
+    "type": []
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 37,
+  "fields": {
+    "title": "Собрание",
+    "description": "В конце марта будет важное собрание. Нельзя пропустить",
+    "status": 1,
+    "project": 2,
+    "is_deleted": false,
+    "created_at": "2023-03-10T12:35:12.238Z",
+    "updated_at": "2023-03-10T13:17:25.801Z",
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 38,
+  "fields": {
+    "title": "GitHub",
+    "description": "Запушить свой последний проект на гитхаб",
+    "status": 1,
+    "project": 1,
+    "is_deleted": false,
+    "created_at": "2023-03-10T12:35:46.071Z",
+    "updated_at": "2023-03-10T13:18:13.410Z",
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 39,
+  "fields": {
+    "title": "ТЕст",
+    "description": "ываыва",
+    "status": 2,
+    "project": 2,
+    "is_deleted": true,
+    "created_at": "2023-03-10T12:37:15.840Z",
+    "updated_at": "2023-03-10T12:59:52.728Z",
+    "type": []
   }
 },
 {
@@ -261,11 +429,31 @@
   }
 },
 {
+  "model": "webapp.project",
+  "pk": 1,
+  "fields": {
+    "name": "НИЯУ МИФИ",
+    "description": "В этом проекте присутствуют задачи, которые касаются только учебных моментов",
+    "started_at": "2023-03-10",
+    "ended_at": "2023-03-10"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 2,
+  "fields": {
+    "name": "Работа",
+    "description": "В этом проекте присутствуют задачи, которые касаются только рабочих моментов",
+    "started_at": "2022-12-11",
+    "ended_at": "2022-12-11"
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$390000$2Llgh5bVD9hIQX4KzWul8y$Skbxsqp5WCy5MRGDsIafx69YFSO0R54i0EY87uMnyMU=",
-    "last_login": "2023-03-02T10:47:07.361Z",
+    "last_login": "2023-03-05T15:25:05.329Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
