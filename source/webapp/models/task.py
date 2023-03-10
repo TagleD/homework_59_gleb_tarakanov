@@ -28,6 +28,13 @@ class Task(models.Model):
         related_name='types',
         blank=True
     )
+    project = models.ForeignKey(
+        'webapp.Project',
+        related_name='projects',
+        on_delete=models.PROTECT,
+        verbose_name='Проект',
+        default=1
+    )
     created_at = models.DateTimeField(
         auto_now_add=True,
         verbose_name="Время создания"

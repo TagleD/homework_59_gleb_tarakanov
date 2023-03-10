@@ -10,7 +10,7 @@ from webapp.models import Task
 
 
 class TasksView(ListView):
-    template_name = 'tasks.html'
+    template_name = 'task/tasks.html'
 
     context_object_name = 'tasks'
     model = Task
@@ -51,7 +51,7 @@ class TasksView(ListView):
 
 
 class DetailView(TemplateView):
-    template_name = 'task_detail.html'
+    template_name = 'task/task_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -61,7 +61,7 @@ class DetailView(TemplateView):
 
 
 class AddView(TemplateView):
-    template_name = 'add_task.html'
+    template_name = 'task/add_task.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -71,7 +71,7 @@ class AddView(TemplateView):
     def post(self, request, *args, **kwargs):
         form = TaskForm(data=request.POST)
         if not form.is_valid():
-            return render(request, 'add_task.html', context={
+            return render(request, 'task/add_task.html', context={
                 'form': form
             })
         else:
@@ -80,7 +80,7 @@ class AddView(TemplateView):
 
 
 class UpdateView(TemplateView):
-    template_name = 'update_task.html'
+    template_name = 'task/update_task.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -94,11 +94,11 @@ class UpdateView(TemplateView):
         if form.is_valid():
             form.save()
             return redirect('detail_view', pk=task.pk)
-        return render(request, 'update_task.html', context={'form': form, 'task': task})
+        return render(request, 'task/update_task.html', context={'form': form, 'task': task})
 
 
 class DeleteView(TemplateView):
-    template_name = 'confirm_delete.html'
+    template_name = 'task/confirm_delete.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
