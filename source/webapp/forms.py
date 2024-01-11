@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from django.core.validators import BaseValidator, MinLengthValidator
 from django.forms import Textarea
 
-from webapp.models import Task, Project
+from webapp.models import Task, Project, Status
 
 
 class CustomLengthValidator(BaseValidator):
@@ -98,3 +98,9 @@ class ProjectTaskForm(forms.ModelForm):
 
 class SimpleSearchForm(forms.Form):
     search = forms.CharField(max_length=100, required=False, label='Найти')
+
+
+class StatusForm(forms.ModelForm):
+    class Meta:
+        model = Status
+        fields = ('name',)
